@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Process - Next Gen Agency</title>
+    
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230f172a'/%3E%3Cpath d='M30 80V20 L70 50 V80 L30 50 V20' fill='none' stroke='%2338bdf8' stroke-width='10'/%3E%3C/svg%3E">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style type="text/tailwindcss">
+        @layer base {
+            html {
+                font-family: 'Inter', sans-serif;
+            }
+        }
+        
+        /* --- Preloader Styles --- */
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #0f172a;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.8s ease-out;
+        }
+        #preloader.loaded {
+            opacity: 0;
+            pointer-events: none;
+        }
+        .loader-container {
+            display: flex;
+            align-items: flex-end;
+            height: 50px;
+        }
+        .loader-bar {
+            width: 10px;
+            height: 10px;
+            margin: 0 4px;
+            background-color: #38bdf8;
+            border-radius: 5px;
+            animation: bar-grow 1.2s infinite ease-in-out;
+        }
+        .loader-bar:nth-child(2) { animation-delay: 0.1s; }
+        .loader-bar:nth-child(3) { animation-delay: 0.2s; }
+        .loader-bar:nth-child(4) { animation-delay: 0.3s; }
+
+        @keyframes bar-grow {
+            0%, 100% {
+                transform: scaleY(0.2);
+                background-color: #334155;
+            }
+            50% {
+                transform: scaleY(1);
+                background-color: #38bdf8;
+            }
+        }
+
+        /* --- Nav Link Underline --- */
+        .nav-link { position: relative; text-decoration: none; }
+        .nav-link::after {
+            content: ''; position: absolute; width: 100%; transform: scaleX(0);
+            height: 2px; bottom: -4px; left: 0; background-color: #38bdf8;
+            transform-origin: bottom right; transition: transform 0.25s ease-out;
+        }
+        .nav-link:hover::after { transform: scaleX(1); transform-origin: bottom left; }
+
+        /* --- Aurora Background --- */
+        .aurora-background { position: relative; overflow: hidden; }
+        .aurora-background::before {
+            content: ""; position: absolute; top: 50%; left: 50%;
+            transform: translate(-50%, -50%); width: 120%; height: 120%;
+            background-image: radial-gradient(circle at 20% 20%, rgba(56, 189, 248, 0.15), transparent 30%),
+                              radial-gradient(circle at 80% 70%, rgba(139, 92, 246, 0.15), transparent 30%);
+            animation: aurora-move 20s infinite linear; z-index: 0;
+        }
+        @keyframes aurora-move {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+    </style>
+    <script>
+        // Handles dark mode based on user's system preference or saved choice
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark')
+        } else {
+            document.documentElement.classList.remove('dark')
+        }
+    </script>
+</head>
+
+<body class="bg-slate-100 dark:bg-slate-900 text-slate-700 dark:text-slate-300 transition-colors duration-500 overflow-hidden">
+    
+    <!-- New Minimal Preloader -->
+    <div id="preloader">
+        <div class="loader-container">
+            <div class="loader-bar"></div>
+            <div class="loader-bar"></div>
+            <div class="loader-bar"></div>
+            <div class="loader-bar"></div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="bg-slate-100/80 dark:bg-slate-900/80 backdrop-blur-md fixed top-0 left-0 right-0 z-50 border-b border-slate-200 dark:border-slate-800">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold text-slate-800 dark:text-white">
+                Next Gen <span class="text-sky-500">Agency</span>
+            </a>
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="index.html#home" class="nav-link hover:text-sky-500 dark:hover:text-sky-400 transition-colors duration-300">Home</a>
+                <a href="about.html" class="nav-link text-sky-500 dark:text-sky-400">Our Process</a>
+                <a href="index.html#services" class="nav-link hover:text-sky-500 dark:hover:text-sky-400 transition-colors duration-300">Services</a>
+                <a href="index.html#portfolio" class="nav-link hover:text-sky-500 dark:hover:text-sky-400 transition-colors duration-300">Work</a>
+                <a href="index.html#contact" class="nav-link hover:text-sky-500 dark:hover:text-sky-400 transition-colors duration-300">Contact</a>
+            </nav>
+            <div class="flex items-center space-x-4">
+                <button id="theme-toggle" class="p-2 rounded-full text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800 focus:outline-none">
+                    <svg id="theme-toggle-light-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm-.707 7.072l.707-.707a1 1 0 10-1.414-1.414l-.707.707a1 1 0 001.414 1.414zM3 11a1 1 0 100-2H2a1 1 0 100 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+                    <svg id="theme-toggle-dark-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+                </button>
+                <a href="index.html#contact" class="hidden md:block bg-sky-500 hover:bg-sky-600 text-white font-semibold px-5 py-2 rounded-md transition-all duration-300 hover:scale-105 shadow-lg shadow-sky-500/20">
+                    Get Started
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content" class="opacity-0">
+        <section id="workflow-hero" class="aurora-background relative min-h-[60vh] flex items-center bg-white dark:bg-slate-900">
+            <div class="container mx-auto px-6 text-center z-10">
+                <div data-aos="fade-up">
+                    <h1 class="text-4xl md:text-6xl font-extrabold text-slate-900 dark:text-white leading-tight mb-4">
+                        Our Partnership <span class="text-sky-500">Workflow</span>
+                    </h1>
+                    <p class="text-lg md:text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="200">
+                        A transparent look into how we partner with your LLC to build and scale a profitable e-commerce asset on the Walmart marketplace.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="requirements" class="py-24">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-800 dark:text-white">Setting the <span class="text-sky-500">Foundation</span></h2>
+                    <p class="text-slate-500 dark:text-slate-400 mt-2 max-w-2xl mx-auto">To ensure a smooth and compliant operation, we require a few key things from our partners.</p>
+                </div>
+                <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
+                    <div data-aos="fade-right">
+                        <h3 class="text-2xl font-bold text-slate-800 dark:text-white mb-4">LLC & Business Essentials</h3>
+                        <ul class="space-y-4">
+                            <li class="flex items-start">
+                                <svg class="w-6 h-6 text-sky-500 mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                <span><strong class="text-slate-700 dark:text-slate-200">US-Based LLC:</strong> Your Limited Liability Company provides the legal structure for our partnership.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-6 h-6 text-sky-500 mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                <span><strong class="text-slate-700 dark:text-slate-200">EIN Document:</strong> The Employer Identification Number is required for tax purposes and opening accounts.</span>
+                            </li>
+                             <li class="flex items-start">
+                                <svg class="w-6 h-6 text-sky-500 mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                <span><strong class="text-slate-700 dark:text-slate-200">Resale Certificate:</strong> Allows us to purchase products for resale without paying sales tax.</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div data-aos="fade-left">
+                        <h3 class="text-2xl font-bold text-slate-800 dark:text-white mb-4">Store & Financials</h3>
+                        <ul class="space-y-4">
+                            <li class="flex items-start">
+                                <svg class="w-6 h-6 text-sky-500 mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                <span><strong class="text-slate-700 dark:text-slate-200">Walmart Seller Account:</strong> The central hub for your e-commerce store on the marketplace.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-6 h-6 text-sky-500 mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                <span><strong class="text-slate-700 dark:text-slate-200">Business Bank Account:</strong> Dedicated account for all store-related deposits and transactions.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-6 h-6 text-sky-500 mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                <span><strong class="text-slate-700 dark:text-slate-200">Business Credit Card:</strong> Used for purchasing inventory and covering operational costs.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- New Risk Factor Section -->
+        <section id="risk-factor" class="py-24 bg-slate-50 dark:bg-slate-800/50">
+            <div class="container mx-auto px-6">
+                <div class="max-w-3xl mx-auto text-center bg-white dark:bg-slate-800 p-8 rounded-lg shadow-xl" data-aos="fade-up">
+                    <div class="flex justify-center items-center mx-auto bg-green-100 dark:bg-green-500/20 text-green-500 w-16 h-16 rounded-full mb-6">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                    <h2 class="text-2xl md:text-3xl font-bold text-slate-800 dark:text-white">A <span class="text-green-500">Low-Risk</span> Partnership</h2>
+                    <p class="text-slate-500 dark:text-slate-400 mt-4 text-lg">Our primary third-party model is designed to minimize your financial risk. We don't buy products until a customer places an order, meaning your capital isn't tied up in unsold inventory. This lean approach allows for greater flexibility and a safer investment in your e-commerce growth.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Flowchart Section with Toggles -->
+        <section id="flowchart" class="py-24">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12" data-aos="fade-up">
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-800 dark:text-white">How It All Works: <span class="text-sky-500">Choose Your Model</span></h2>
+                    <p class="text-slate-500 dark:text-slate-400 mt-2 max-w-2xl mx-auto">We operate as your expert management team. Select a model below to see a visual breakdown of the process.</p>
+                </div>
+
+                <!-- Model Toggle Buttons -->
+                <div class="flex justify-center space-x-4 mb-16" data-aos="fade-up" data-aos-delay="100">
+                    <button id="btn-third-party" class="model-toggle-btn bg-sky-500 text-white font-semibold py-2 px-6 rounded-full transition-all duration-300">Third-Party Model</button>
+                    <button id="btn-wholesale" class="model-toggle-btn bg-slate-200 dark:bg-slate-700 text-slate-600 dark:text-slate-300 font-semibold py-2 px-6 rounded-full transition-all duration-300">Wholesale Model</button>
+                </div>
+
+                <!-- Third-Party Flowchart -->
+                <div id="third-party-flowchart" class="flowchart-container flex flex-col items-center">
+                    <!-- Top Row -->
+                    <div class="w-full flex flex-col md:flex-row justify-center items-center md:items-start space-y-8 md:space-y-0 md:space-x-8 lg:space-x-16">
+                        <div class="text-center w-52" data-aos="zoom-in">
+                            <div class="bg-white dark:bg-slate-800 rounded-full h-24 w-24 mx-auto flex items-center justify-center shadow-lg border-2 border-sky-500"><svg class="w-12 h-12 text-sky-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg></div>
+                            <h3 class="font-bold mt-4 text-slate-800 dark:text-white">1. You (The Client)</h3><p class="text-sm text-slate-500 dark:text-slate-400">Provide the LLC & capital.</p>
+                        </div>
+                        <div class="hidden md:block text-slate-400 dark:text-slate-600 pt-10"><svg class="w-24 lg:w-32 h-8" fill="none" stroke="currentColor" viewBox="0 0 120 40"><path d="M5 20h110" stroke-width="2" stroke-dasharray="5 5"></path><path d="M105 10l10 10-10 10" stroke-width="2"></path></svg></div>
+                        <div class="text-center w-52" data-aos="zoom-in" data-aos-delay="200">
+                            <div class="bg-white dark:bg-slate-800 rounded-full h-24 w-24 mx-auto flex items-center justify-center shadow-lg border-2 border-sky-500"><svg class="w-12 h-12 text-sky-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg></div>
+                            <h3 class="font-bold mt-4 text-slate-800 dark:text-white">2. Us (The Agency)</h3><p class="text-sm text-slate-500 dark:text-slate-400">Manage all store operations.</p>
+                        </div>
+                        <div class="hidden md:block text-slate-400 dark:text-slate-600 pt-10"><svg class="w-24 lg:w-32 h-8" fill="none" stroke="currentColor" viewBox="0 0 120 40"><path d="M5 20h110" stroke-width="2" stroke-dasharray="5 5"></path><path d="M105 10l10 10-10 10" stroke-width="2"></path></svg></div>
+                        <div class="text-center w-52" data-aos="zoom-in" data-aos-delay="400">
+                            <div class="bg-white dark:bg-slate-800 rounded-full h-24 w-24 mx-auto flex items-center justify-center shadow-lg border-2 border-sky-500"><svg class="w-12 h-12 text-sky-500" role="img" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M11.232 5.392l-4.5 2.58v5.155l4.5 2.58l4.5-2.58V7.972l-4.5-2.58zm0-2.172a2.25 2.25 0 0 1 1.125.32l6.75 3.872a2.25 2.25 0 0 1 1.125 1.95v7.75a2.25 2.25 0 0 1-1.125 1.95l-6.75 3.87a2.25 2.25 0 0 1-2.25 0l-6.75-3.87a2.25 2.25 0 0 1-1.125-1.95v-7.75a2.25 2.25 0 0 1 1.125-1.95l6.75-3.87a2.25 2.25 0 0 1 1.125-.322zM24 12l-5.34-3.08L13.32 12l5.34 3.08L24 12zM0 12l5.34-3.08L10.68 12l-5.34 3.08L0 12z"/></svg></div>
+                            <h3 class="font-bold mt-4 text-slate-800 dark:text-white">3. Walmart Store</h3><p class="text-sm text-slate-500 dark:text-slate-400">Products are listed and sold.</p>
+                        </div>
+                    </div>
+                    <div class="text-slate-400 dark:text-slate-600 my-8"><svg class="w-8 h-24" fill="none" stroke="currentColor" viewBox="0 0 40 120"><path d="M20 5v110" stroke-width="2" stroke-dasharray="5 5"></path><path d="M10 105l10 10 10-10" stroke-width="2"></path></svg></div>
+                    <div class="w-full flex flex-col md:flex-row justify-center items-center md:items-start space-y-8 md:space-y-0 md:space-x-8 lg:space-x-16">
+                        <div class="text-center w-52" data-aos="zoom-in" data-aos-delay="600">
+                            <div class="bg-white dark:bg-slate-800 rounded-full h-24 w-24 mx-auto flex items-center justify-center shadow-lg border-2 border-green-500"><svg class="w-12 h-12 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg></div>
+                            <h3 class="font-bold mt-4 text-slate-800 dark:text-white">4. Customers</h3><p class="text-sm text-slate-500 dark:text-slate-400">Purchase products from your store.</p>
+                        </div>
+                        <div class="hidden md:block text-slate-400 dark:text-slate-600 pt-10"><svg class="w-24 lg:w-32 h-8" fill="none" stroke="currentColor" viewBox="0 0 120 40"><path d="M5 20h110" stroke-width="2" stroke-dasharray="5 5"></path><path d="M105 10l10 10-10 10" stroke-width="2"></path></svg></div>
+                        <div class="text-center w-52" data-aos="zoom-in" data-aos-delay="800">
+                            <div class="bg-white dark:bg-slate-800 rounded-full h-24 w-24 mx-auto flex items-center justify-center shadow-lg border-2 border-green-500"><svg class="w-12 h-12 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v.01M12 6v-1h4v1h-4zm-4 4H5v1h3v-1zm0 4H5v1h3v-1zm0 4H5v1h3v-1zm12-4h-3v1h3v-1zm0 4h-3v1h3v-1zm0-8h-3v1h3v-1zm-4 8h-1v-1h1v1zm-2 0h-1v-1h1v1zm-2 0h-1v-1h1v1zm-2 0h-1v-1h1v1z"></path></svg></div>
+                            <h3 class="font-bold mt-4 text-slate-800 dark:text-white">5. Your Bank Account</h3><p class="text-sm text-slate-500 dark:text-slate-400">Revenue is deposited directly.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Wholesale Flowchart (initially hidden) -->
+                <div id="wholesale-flowchart" class="flowchart-container hidden flex-col items-center">
+                    <!-- Top Row -->
+                    <div class="w-full flex flex-col md:flex-row justify-center items-center md:items-start space-y-8 md:space-y-0 md:space-x-8 lg:space-x-16">
+                        <div class="text-center w-52">
+                            <div class="bg-white dark:bg-slate-800 rounded-full h-24 w-24 mx-auto flex items-center justify-center shadow-lg border-2 border-purple-500"><svg class="w-12 h-12 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg></div>
+                            <h3 class="font-bold mt-4 text-slate-800 dark:text-white">1. You (The Client)</h3><p class="text-sm text-slate-500 dark:text-slate-400">Provide the LLC & capital.</p>
+                        </div>
+                        <div class="hidden md:block text-slate-400 dark:text-slate-600 pt-10"><svg class="w-24 lg:w-32 h-8" fill="none" stroke="currentColor" viewBox="0 0 120 40"><path d="M5 20h110" stroke-width="2" stroke-dasharray="5 5"></path><path d="M105 10l10 10-10 10" stroke-width="2"></path></svg></div>
+                        <div class="text-center w-52">
+                            <div class="bg-white dark:bg-slate-800 rounded-full h-24 w-24 mx-auto flex items-center justify-center shadow-lg border-2 border-purple-500"><svg class="w-12 h-12 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path></svg></div>
+                            <h3 class="font-bold mt-4 text-slate-800 dark:text-white">2. Us (The Agency)</h3><p class="text-sm text-slate-500 dark:text-slate-400">Source products from local markets.</p>
+                        </div>
+                        <div class="hidden md:block text-slate-400 dark:text-slate-600 pt-10"><svg class="w-24 lg:w-32 h-8" fill="none" stroke="currentColor" viewBox="0 0 120 40"><path d="M5 20h110" stroke-width="2" stroke-dasharray="5 5"></path><path d="M105 10l10 10-10 10" stroke-width="2"></path></svg></div>
+                        <div class="text-center w-52">
+                            <div class="bg-white dark:bg-slate-800 rounded-full h-24 w-24 mx-auto flex items-center justify-center shadow-lg border-2 border-purple-500"><svg class="w-12 h-12 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4M4 7v10l8 4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></div>
+                            <h3 class="font-bold mt-4 text-slate-800 dark:text-white">3. Inventory</h3><p class="text-sm text-slate-500 dark:text-slate-400">Products are bought in bulk.</p>
+                        </div>
+                    </div>
+                    <div class="text-slate-400 dark:text-slate-600 my-8"><svg class="w-8 h-24" fill="none" stroke="currentColor" viewBox="0 0 40 120"><path d="M20 5v110" stroke-width="2" stroke-dasharray="5 5"></path><path d="M10 105l10 10 10-10" stroke-width="2"></path></svg></div>
+                    <div class="w-full flex flex-col md:flex-row justify-center items-center md:items-start space-y-8 md:space-y-0 md:space-x-8 lg:space-x-16">
+                        <div class="text-center w-52">
+                            <div class="bg-white dark:bg-slate-800 rounded-full h-24 w-24 mx-auto flex items-center justify-center shadow-lg border-2 border-green-500"><svg class="w-12 h-12 text-green-500" role="img" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M11.232 5.392l-4.5 2.58v5.155l4.5 2.58l4.5-2.58V7.972l-4.5-2.58zm0-2.172a2.25 2.25 0 0 1 1.125.32l6.75 3.872a2.25 2.25 0 0 1 1.125 1.95v7.75a2.25 2.25 0 0 1-1.125 1.95l-6.75 3.87a2.25 2.25 0 0 1-2.25 0l-6.75-3.87a2.25 2.25 0 0 1-1.125-1.95v-7.75a2.25 2.25 0 0 1 1.125-1.95l6.75-3.87a2.25 2.25 0 0 1 1.125-.322zM24 12l-5.34-3.08L13.32 12l5.34 3.08L24 12zM0 12l5.34-3.08L10.68 12l-5.34 3.08L0 12z"/></svg></div>
+                            <h3 class="font-bold mt-4 text-slate-800 dark:text-white">4. Walmart Store</h3><p class="text-sm text-slate-500 dark:text-slate-400">Products are listed and sold.</p>
+                        </div>
+                        <div class="hidden md:block text-slate-400 dark:text-slate-600 pt-10"><svg class="w-24 lg:w-32 h-8" fill="none" stroke="currentColor" viewBox="0 0 120 40"><path d="M5 20h110" stroke-width="2" stroke-dasharray="5 5"></path><path d="M105 10l10 10-10 10" stroke-width="2"></path></svg></div>
+                        <div class="text-center w-52">
+                            <div class="bg-white dark:bg-slate-800 rounded-full h-24 w-24 mx-auto flex items-center justify-center shadow-lg border-2 border-green-500"><svg class="w-12 h-12 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg></div>
+                            <h3 class="font-bold mt-4 text-slate-800 dark:text-white">5. Customers</h3><p class="text-sm text-slate-500 dark:text-slate-400">Purchase products from your store.</p>
+                        </div>
+                        <div class="hidden md:block text-slate-400 dark:text-slate-600 pt-10"><svg class="w-24 lg:w-32 h-8" fill="none" stroke="currentColor" viewBox="0 0 120 40"><path d="M5 20h110" stroke-width="2" stroke-dasharray="5 5"></path><path d="M105 10l10 10-10 10" stroke-width="2"></path></svg></div>
+                        <div class="text-center w-52">
+                            <div class="bg-white dark:bg-slate-800 rounded-full h-24 w-24 mx-auto flex items-center justify-center shadow-lg border-2 border-green-500"><svg class="w-12 h-12 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v.01M12 6v-1h4v1h-4zm-4 4H5v1h3v-1zm0 4H5v1h3v-1zm0 4H5v1h3v-1zm12-4h-3v1h3v-1zm0 4h-3v1h3v-1zm0-8h-3v1h3v-1zm-4 8h-1v-1h1v1zm-2 0h-1v-1h1v1zm-2 0h-1v-1h1v1zm-2 0h-1v-1h1v1z"></path></svg></div>
+                            <h3 class="font-bold mt-4 text-slate-800 dark:text-white">6. Your Bank Account</h3><p class="text-sm text-slate-500 dark:text-slate-400">Revenue is deposited directly.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="py-24">
+            <div class="container mx-auto px-6 text-center" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-800 dark:text-white">Ready to Build Your <span class="text-sky-500">E-commerce Asset?</span></h2>
+                <p class="text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto mt-4 mb-8">Now that you understand our process, the next step is to start the conversation. Let our team build and manage a profitable store for you.</p>
+                <a href="index.html#contact" class="bg-sky-500 hover:bg-sky-600 text-white font-bold py-4 px-10 rounded-full text-lg transition-all duration-300 hover:scale-105 shadow-2xl shadow-sky-500/30">
+                    Let's Get Started
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-200 dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800">
+        <div class="container mx-auto px-6 py-8">
+            <div class="flex flex-col md:flex-row justify-between items-center text-center md:text-left">
+                <p class="text-slate-500 dark:text-slate-400 mb-4 md:mb-0">&copy; 2025 Next Gen Agency. All Rights Reserved.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-slate-500 dark:text-slate-400 hover:text-sky-500 transition-colors"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.71v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" /></svg></a>
+                    <a href="#" class="text-slate-500 dark:text-slate-400 hover:text-sky-500 transition-colors"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12.014c0 4.548 3.102 8.366 7.337 9.635.537.1.733-.23.733-.513v-1.8c-3.01.655-3.643-1.457-3.643-1.457-.487-1.24-1.19-1.57-1.19-1.57-.973-.666.074-.653.074-.653 1.074.075 1.64 1.103 1.64 1.103.954 1.637 2.503 1.163 3.113.89.097-.7.373-1.164.68-1.432-2.378-.27-4.875-1.19-4.875-5.282 0-1.168.416-2.122 1.1-2.868-.11-.27-.477-1.356.104-2.822 0 0 .898-.288 2.94 1.098a10.29 10.29 0 012.67-.36c.905 0 1.81.12 2.67.36 2.04-1.386 2.936-1.098 2.936-1.098.583 1.466.216 2.552.106 2.822.686.746 1.1 1.7 1.1 2.868 0 4.102-2.498 5.01-4.885 5.274.385.33.73.98.73 1.974v2.92h-.008c0 .286.193.617.74.51C18.898 20.38 22 16.56 22 12.014 22 6.477 17.523 2 12 2z" clip-rule="evenodd" /></svg></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+        const preloader = document.getElementById('preloader');
+        const mainContent = document.getElementById('main-content');
+        
+        function finishLoading() {
+            if (preloader.classList.contains('loaded')) return;
+            preloader.classList.add('loaded');
+            setTimeout(() => {
+                preloader.style.display = 'none';
+                document.body.style.overflow = 'auto';
+                mainContent.style.opacity = '1';
+                AOS.init({
+                    duration: 800,
+                    easing: 'ease-in-out',
+                    once: true,
+                    mirror: false
+                });
+            }, 500);
+        }
+
+        window.addEventListener('load', finishLoading);
+        setTimeout(finishLoading, 3000); 
+        
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const lightIcon = document.getElementById('theme-toggle-light-icon');
+        const darkIcon = document.getElementById('theme-toggle-dark-icon');
+
+        const setIconVisibility = () => {
+            if (document.documentElement.classList.contains('dark')) {
+                lightIcon.classList.remove('hidden');
+                darkIcon.classList.add('hidden');
+            } else {
+                lightIcon.classList.add('hidden');
+                darkIcon.classList.remove('hidden');
+            }
+        };
+
+        setIconVisibility();
+
+        themeToggleBtn.addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark');
+            localStorage.theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+            setIconVisibility();
+        });
+
+        // --- Model Toggle Logic ---
+        const btnThirdParty = document.getElementById('btn-third-party');
+        const btnWholesale = document.getElementById('btn-wholesale');
+        const thirdPartyFlowchart = document.getElementById('third-party-flowchart');
+        const wholesaleFlowchart = document.getElementById('wholesale-flowchart');
+
+        btnThirdParty.addEventListener('click', () => {
+            // Show third-party flowchart
+            thirdPartyFlowchart.classList.remove('hidden');
+            thirdPartyFlowchart.classList.add('flex');
+            wholesaleFlowchart.classList.add('hidden');
+            wholesaleFlowchart.classList.remove('flex');
+
+            // Update button styles
+            btnThirdParty.classList.add('bg-sky-500', 'text-white');
+            btnThirdParty.classList.remove('bg-slate-200', 'dark:bg-slate-700', 'text-slate-600', 'dark:text-slate-300');
+            
+            btnWholesale.classList.remove('bg-sky-500', 'text-white');
+            btnWholesale.classList.add('bg-slate-200', 'dark:bg-slate-700', 'text-slate-600', 'dark:text-slate-300');
+        });
+
+        btnWholesale.addEventListener('click', () => {
+            // Show wholesale flowchart
+            wholesaleFlowchart.classList.remove('hidden');
+            wholesaleFlowchart.classList.add('flex');
+            thirdPartyFlowchart.classList.add('hidden');
+            thirdPartyFlowchart.classList.remove('flex');
+
+            // Update button styles
+            btnWholesale.classList.add('bg-sky-500', 'text-white');
+            btnWholesale.classList.remove('bg-slate-200', 'dark:bg-slate-700', 'text-slate-600', 'dark:text-slate-300');
+
+            btnThirdParty.classList.remove('bg-sky-500', 'text-white');
+            btnThirdParty.classList.add('bg-slate-200', 'dark:bg-slate-700', 'text-slate-600', 'dark:text-slate-300');
+        });
+    });
+    </script>
+</body>
+</html>
