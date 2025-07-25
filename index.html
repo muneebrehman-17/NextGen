@@ -126,29 +126,52 @@
     </div>
 
     <header class="bg-slate-100/80 dark:bg-slate-900/80 backdrop-blur-md fixed top-0 left-0 right-0 z-50 border-b border-slate-200 dark:border-slate-800">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-2xl font-bold text-slate-800 dark:text-white">
-                Next Gen <span class="text-sky-500">Agency</span>
+    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+        <!-- Your Logo -->
+        <a href="index.html" class="text-2xl font-bold text-slate-800 dark:text-white">
+            Next Gen <span class="text-sky-500">Agency</span>
+        </a>
+        
+        <!-- Desktop Navigation (hidden on small screens) -->
+        <nav class="hidden md:flex items-center space-x-8">
+            <a href="index.html" class="nav-link hover:text-sky-500 dark:hover:text-sky-400">Home</a>
+            <a href="about.html" class="nav-link hover:text-sky-500 dark:hover:text-sky-400">Our Process</a>
+            <a href="services.html" class="nav-link hover:text-sky-500 dark:hover:text-sky-400">Services</a>
+            <a href="work.html" class="nav-link hover:text-sky-500 dark:hover:text-sky-400">Work</a>
+            <a href="contact.html" class="nav-link hover:text-sky-500 dark:hover:text-sky-400">Contact</a>
+        </nav>
+
+        <div class="flex items-center space-x-2">
+            <!-- Theme Toggle Button -->
+            <button id="theme-toggle" class="p-2 rounded-full text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800 focus:outline-none">
+                <svg id="theme-toggle-light-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm-.707 7.072l.707-.707a1 1 0 10-1.414-1.414l-.707.707a1 1 0 001.414 1.414zM3 11a1 1 0 100-2H2a1 1 0 100 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+                <svg id="theme-toggle-dark-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+            </button>
+            <!-- Desktop CTA -->
+            <a href="contact.html" class="hidden md:block bg-sky-500 hover:bg-sky-600 text-white font-semibold px-5 py-2 rounded-md">
+                Get Started
             </a>
-            <nav class="hidden md:flex items-center space-x-8">
-                <a href="#about" class="nav-link hover:text-sky-500 dark:hover:text-sky-400 transition-colors duration-300">About</a>
-                <a href="process.html" class="relative nav-link hover:text-sky-500 dark:hover:text-sky-400 transition-colors duration-300">
-                    <span class="absolute -top-4 left-1/2 -translate-x-1/2"></span>Our Process 🔥</a>
-                <a href="Services.html" class="nav-link hover:text-sky-500 dark:hover:text-sky-400 transition-colors duration-300">Services</a>                                                                                                                                                                             
-                <a href="work.html" class="nav-link hover:text-sky-500 dark:hover:text-sky-400 transition-colors duration-300">Work</a>
-                <a href="contact.html" class="nav-link hover:text-sky-500 dark:hover:text-sky-400 transition-colors duration-300">Contact</a>
-            </nav>
-            <div class="flex items-center space-x-4">
-                <button id="theme-toggle" class="p-2 rounded-full text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800 focus:outline-none">
-                    <svg id="theme-toggle-light-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm-.707 7.072l.707-.707a1 1 0 10-1.414-1.414l-.707.707a1 1 0 001.414 1.414zM3 11a1 1 0 100-2H2a1 1 0 100 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
-                    <svg id="theme-toggle-dark-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
-                </button>
-                <a href="contact.html" class="hidden md:block bg-sky-500 hover:bg-sky-600 text-white font-semibold px-5 py-2 rounded-md transition-all duration-300 hover:scale-105 shadow-lg shadow-sky-500/20">
-                    Get Started
-                </a>
-            </div>
+            <!-- Mobile Menu Button (visible on small screens) -->
+            <button id="mobile-menu-button" class="md:hidden p-2 rounded-full text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800">
+                <svg id="hamburger-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                <svg id="close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
         </div>
-    </header>
+    </div>
+    <!-- Mobile Menu Panel (toggled by JS) -->
+    <div id="mobile-menu" class="hidden md:hidden bg-slate-100 dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800">
+        <nav class="flex flex-col items-center space-y-4 p-6">
+            <a href="index.html#about" class="nav-link hover:text-sky-500 dark:hover:text-sky-400">About</a>
+            <a href="process.html" class="nav-link hover:text-sky-500 dark:hover:text-sky-400">Our Process</a>
+            <a href="Services.html" class="nav-link hover:text-sky-500 dark:hover:text-sky-400">Services</a>
+            <a href="work.html" class="nav-link hover:text-sky-500 dark:hover:text-sky-400">Work</a>
+            <a href="contact.html" class="nav-link hover:text-sky-500 dark:hover:text-sky-400">Contact</a>
+            <a href="contact.html" class="mt-4 w-full text-center bg-sky-500 hover:bg-sky-600 text-white font-semibold px-5 py-2 rounded-md">
+                Get Started
+            </a>
+        </nav>
+    </div>
+</header>
 
     <main id="main-content" class="opacity-0">
         <section id="home" class="aurora-background relative min-h-screen flex items-center bg-white dark:bg-slate-900">
@@ -526,5 +549,41 @@
         }
     });
     </script>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // --- MOBILE MENU TOGGLE ---
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const hamburgerIcon = document.getElementById('hamburger-icon');
+        const closeIcon = document.getElementById('close-icon');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            hamburgerIcon.classList.toggle('hidden');
+            closeIcon.classList.toggle('hidden');
+        });
+
+        // --- THEME TOGGLE LOGIC (assuming you want this on other pages too) ---
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const lightIcon = document.getElementById('theme-toggle-light-icon');
+        const darkIcon = document.getElementById('theme-toggle-dark-icon');
+
+        const setIconVisibility = () => {
+            if (document.documentElement.classList.contains('dark')) {
+                lightIcon.classList.remove('hidden');
+                darkIcon.classList.add('hidden');
+            } else {
+                lightIcon.classList.add('hidden');
+                darkIcon.classList.remove('hidden');
+            }
+        };
+        setIconVisibility();
+        themeToggleBtn.addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark');
+            localStorage.theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+            setIconVisibility();
+        });
+    });
+</script>
 </body>
 </html>
