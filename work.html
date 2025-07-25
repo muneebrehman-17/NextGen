@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Work - Next Gen Agency</title>
+    
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230f172a'/%3E%3Cpath d='M30 80V20 L70 50 V80 L30 50 V20' fill='none' stroke='%2338bdf8' stroke-width='10'/%3E%3C/svg%3E">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style type="text/tailwindcss">
+        @layer base {
+            html {
+                font-family: 'Inter', sans-serif;
+            }
+        }
+        
+        /* --- Preloader Styles --- */
+        #preloader {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background-color: #0f172a; z-index: 9999; display: flex;
+            align-items: center; justify-content: center; transition: opacity 0.8s ease-out;
+        }
+        #preloader.loaded { opacity: 0; pointer-events: none; }
+        .loader-container { display: flex; align-items: flex-end; height: 50px; }
+        .loader-bar {
+            width: 10px; height: 10px; margin: 0 4px; background-color: #38bdf8;
+            border-radius: 5px; animation: bar-grow 1.2s infinite ease-in-out;
+        }
+        .loader-bar:nth-child(2) { animation-delay: 0.1s; }
+        .loader-bar:nth-child(3) { animation-delay: 0.2s; }
+        .loader-bar:nth-child(4) { animation-delay: 0.3s; }
+        @keyframes bar-grow {
+            0%, 100% { transform: scaleY(0.2); background-color: #334155; }
+            50% { transform: scaleY(1); background-color: #38bdf8; }
+        }
+
+        /* --- Nav Link Underline --- */
+        .nav-link { position: relative; text-decoration: none; }
+        .nav-link::after {
+            content: ''; position: absolute; width: 100%; transform: scaleX(0);
+            height: 2px; bottom: -4px; left: 0; background-color: #38bdf8;
+            transform-origin: bottom right; transition: transform 0.25s ease-out;
+        }
+        .nav-link:hover::after { transform: scaleX(1); transform-origin: bottom left; }
+    </style>
+    <script>
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark')
+        } else {
+            document.documentElement.classList.remove('dark')
+        }
+    </script>
+</head>
+
+<body class="bg-slate-100 dark:bg-slate-900 text-slate-700 dark:text-slate-300 transition-colors duration-500 overflow-hidden">
+    
+    <div id="preloader">
+        <div class="loader-container">
+            <div class="loader-bar"></div>
+            <div class="loader-bar"></div>
+            <div class="loader-bar"></div>
+            <div class="loader-bar"></div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="bg-slate-100/80 dark:bg-slate-900/80 backdrop-blur-md fixed top-0 left-0 right-0 z-50 border-b border-slate-200 dark:border-slate-800">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold text-slate-800 dark:text-white">
+                Next Gen <span class="text-sky-500">Agency</span>
+            </a>
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="index.html" class="nav-link hover:text-sky-500 dark:hover:text-sky-400">Home</a>
+                <a href="about.html" class="nav-link hover:text-sky-500 dark:hover:text-sky-400">Our Process</a>
+                <a href="services.html" class="nav-link hover:text-sky-500 dark:hover:text-sky-400">Services</a>
+                <a href="work.html" class="nav-link text-sky-500 dark:text-sky-400">Work</a>
+                <a href="index.html#contact" class="nav-link hover:text-sky-500 dark:hover:text-sky-400">Contact</a>
+            </nav>
+            <div class="flex items-center space-x-4">
+                <button id="theme-toggle" class="p-2 rounded-full text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800 focus:outline-none">
+                    <svg id="theme-toggle-light-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm-.707 7.072l.707-.707a1 1 0 10-1.414-1.414l-.707.707a1 1 0 001.414 1.414zM3 11a1 1 0 100-2H2a1 1 0 100 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+                    <svg id="theme-toggle-dark-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+                </button>
+                <a href="index.html#contact" class="hidden md:block bg-sky-500 hover:bg-sky-600 text-white font-semibold px-5 py-2 rounded-md transition-all duration-300 hover:scale-105 shadow-lg shadow-sky-500/20">Get Started</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content" class="opacity-0">
+        <!-- 1. Hero Section -->
+        <section class="pt-40 pb-20 bg-white dark:bg-slate-900">
+            <div class="container mx-auto px-6 text-center">
+                <div data-aos="fade-up">
+                    <h1 class="text-4xl md:text-6xl font-extrabold text-slate-900 dark:text-white leading-tight mb-4">
+                        Proven Results, <span class="text-sky-500">Tangible Growth.</span>
+                    </h1>
+                    <p class="text-lg md:text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto">
+                        This is where strategy meets execution. Below, we showcase the real-world impact of our partnership with clients, turning their vision into profitable e-commerce realities.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. Featured Results Banner -->
+        <section class="py-20 bg-slate-50 dark:bg-slate-800/50">
+            <div class="container mx-auto px-6">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                    <div data-aos="fade-up"><h3 class="text-5xl font-extrabold text-sky-500">$85k+</h3><p class="text-slate-500 dark:text-slate-400 mt-2 font-semibold">in Total Client Sales</p></div>
+                    <div data-aos="fade-up" data-aos-delay="100"><h3 class="text-5xl font-extrabold text-sky-500">98%</h3><p class="text-slate-500 dark:text-slate-400 mt-2 font-semibold">Client Satisfaction Rate</p></div>
+                    <div data-aos="fade-up" data-aos-delay="200"><h3 class="text-5xl font-extrabold text-sky-500">150+</h3><p class="text-slate-500 dark:text-slate-400 mt-2 font-semibold">Brands Scaled Successfully</p></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Our Approach to Growth -->
+        <section class="py-24 bg-white dark:bg-slate-900">
+            <div class="container mx-auto px-6 text-center max-w-4xl">
+                <div data-aos="fade-up">
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-800 dark:text-white">Our Approach to Growth</h2>
+                    <div class="w-24 h-1 bg-sky-500 mt-4 mx-auto rounded"></div>
+                    <p class="text-lg text-slate-600 dark:text-slate-300 mt-6">Our results aren't accidental. They are the product of a meticulous, data-first philosophy. We combine deep market analysis with platform-specific strategies and relentless execution to build sustainable growth for every client. We don't just manage stores; we build businesses.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Case Study Deep Dive #1: Amazon -->
+        <section class="py-24 bg-slate-50 dark:bg-slate-800/50">
+            <div class="container mx-auto px-6">
+                <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+                    <div class="lg:w-1/2" data-aos="fade-right">
+                        <span class="font-bold uppercase tracking-wider text-sky-500">Case Study: Amazon</span>
+                        <h3 class="text-3xl font-bold text-slate-800 dark:text-white mt-2 mb-4">Third-Party Seller Launch</h3>
+                        <p class="text-slate-600 dark:text-slate-300 mb-4"><strong>The Challenge:</strong> A new brand needed to enter the competitive Amazon marketplace and achieve profitability within its first quarter, with no prior sales history.</p>
+                        <p class="text-slate-600 dark:text-slate-300 mb-6"><strong>Our Strategy:</strong> We executed a multi-faceted launch plan, starting with data-driven product research to identify a high-demand niche. We then crafted SEO-optimized listings with A+ content and managed a strategic PPC campaign to drive initial traffic and sales velocity.</p>
+                        <div class="grid grid-cols-3 gap-4 text-center p-6 bg-white dark:bg-slate-800 rounded-lg shadow-md">
+                            <div><p class="text-3xl font-bold text-sky-500">$8k+</p><p class="text-xs text-slate-500 dark:text-slate-400">Sales in 2 Months</p></div>
+                            <div><p class="text-3xl font-bold text-sky-500">&lt;10%</p><p class="text-xs text-slate-500 dark:text-slate-400">Return Ratio</p></div>
+                            <div><p class="text-3xl font-bold text-sky-500">4.5 ★</p><p class="text-xs text-slate-500 dark:text-slate-400">Average Rating</p></div>
+                        </div>
+                    </div>
+                    <div class="lg:w-1/2 flex items-center justify-center p-8 bg-white dark:bg-slate-800 rounded-lg shadow-2xl" data-aos="fade-left">
+                        <svg class="h-40 w-auto text-slate-800 dark:text-white" role="img" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M22.51 14.534c0 3.253-2.172 4.41-5.115 4.41-2.215 0-3.83-1.26-4.29-2.345l-.147-.384-.148.384c-.46 1.085-2.075 2.345-4.29 2.345-2.943 0-5.115-1.157-5.115-4.41 0-2.37.95-3.626 2.76-4.53l8.36-4.145 8.36 4.145c1.81.905 2.76 2.16 2.76 4.53Zm-9.08-2.61-5.73-2.83c-.7-.348-1.5-.32-2.17.073-.615.35-1.03 1.03-1.03 1.73v.004c.03.01.05.02.08.03l8.84 4.385.01-.005.01-.005ZM12 13.045l8.91-4.415c.02-.01.05-.02.08-.03v-.005c0-.7-.415-1.38-1.03-1.73-.67-.393-1.47-.42-2.17-.073l-5.73 2.83-.01.005-.05.02Z"/></svg>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Case Study Deep Dive #2: Walmart -->
+        <section class="py-24 bg-white dark:bg-slate-900">
+            <div class="container mx-auto px-6">
+                <div class="flex flex-col lg:flex-row-reverse items-center gap-12 lg:gap-20">
+                    <div class="lg:w-1/2" data-aos="fade-left">
+                        <span class="font-bold uppercase tracking-wider text-green-500">Case Study: Walmart</span>
+                        <h3 class="text-3xl font-bold text-slate-800 dark:text-white mt-2 mb-4">Electronics Brand Expansion</h3>
+                        <p class="text-slate-600 dark:text-slate-300 mb-4"><strong>The Challenge:</strong> An established electronics brand wanted to tap into a new revenue stream by expanding its successful online business to the Walmart marketplace.</p>
+                        <p class="text-slate-600 dark:text-slate-300 mb-6"><strong>Our Strategy:</strong> We adapted their existing catalog for Walmart's unique algorithm, focusing on competitive pricing and keyword optimization. We managed Walmart Performance Ads (WPA) to secure top search placements and ensured flawless fulfillment to earn the Pro Seller Badge.</p>
+                        <div class="grid grid-cols-3 gap-4 text-center p-6 bg-slate-50 dark:bg-slate-800/50 rounded-lg shadow-md">
+                            <div><p class="text-3xl font-bold text-green-500">+40%</p><p class="text-xs text-slate-500 dark:text-slate-400">Total Revenue</p></div>
+                            <div><p class="text-3xl font-bold text-green-500">Top 10</p><p class="text-xs text-slate-500 dark:text-slate-400">Category Rank</p></div>
+                            <div><p class="text-3xl font-bold text-green-500">2x</p><p class="text-xs text-slate-500 dark:text-slate-400">Ad ROAS</p></div>
+                        </div>
+                    </div>
+                    <div class="lg:w-1/2 flex items-center justify-center p-8 bg-slate-50 dark:bg-slate-800/50 rounded-lg shadow-2xl" data-aos="fade-right">
+                        <svg class="h-40 w-auto text-slate-800 dark:text-white" role="img" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M11.232 5.392l-4.5 2.58v5.155l4.5 2.58l4.5-2.58V7.972l-4.5-2.58zm0-2.172a2.25 2.25 0 0 1 1.125.32l6.75 3.872a2.25 2.25 0 0 1 1.125 1.95v7.75a2.25 2.25 0 0 1-1.125 1.95l-6.75 3.87a2.25 2.25 0 0 1-2.25 0l-6.75-3.87a2.25 2.25 0 0 1-1.125-1.95v-7.75a2.25 2.25 0 0 1 1.125-1.95l6.75-3.87a2.25 2.25 0 0 1 1.125-.322zM24 12l-5.34-3.08L13.32 12l5.34 3.08L24 12zM0 12l5.34-3.08L10.68 12l-5.34 3.08L0 12z"/></svg>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Client Testimonial Spotlight -->
+        <section class="py-20 bg-sky-500 text-white">
+            <div class="container mx-auto px-6 text-center max-w-4xl" data-aos="fade-up">
+                <p class="text-3xl font-light italic">"Working with Next Gen Agency was a game-changer. Their insights into the Walmart marketplace are second to none. Our sales have never been better, and their transparency gave us complete peace of mind."</p>
+                <p class="mt-6 font-bold text-lg">Jane Doe, CEO of Home Decor Inc.</p>
+            </div>
+        </section>
+
+        <!-- 7. Case Study Deep Dive #3: eBay -->
+        <section class="py-24 bg-slate-50 dark:bg-slate-800/50">
+            <div class="container mx-auto px-6">
+                <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+                    <div class="lg:w-1/2" data-aos="fade-right">
+                        <span class="font-bold uppercase tracking-wider text-red-500">Case Study: eBay</span>
+                        <h3 class="text-3xl font-bold text-slate-800 dark:text-white mt-2 mb-4">Vintage Apparel Store Revamp</h3>
+                        <p class="text-slate-600 dark:text-slate-300 mb-4"><strong>The Challenge:</strong> A vintage apparel seller on eBay had a loyal following but struggled with low conversion rates and inconsistent sales despite high traffic.</p>
+                        <p class="text-slate-600 dark:text-slate-300 mb-6"><strong>Our Strategy:</strong> We conducted a full store audit, revamping product photography and rewriting all titles for maximum search visibility. We implemented eBay's promotional tools and optimized listing formats, leading to a dramatic increase in sales and seller status.</p>
+                        <div class="grid grid-cols-3 gap-4 text-center p-6 bg-white dark:bg-slate-800 rounded-lg shadow-md">
+                            <div><p class="text-3xl font-bold text-red-500">+75%</p><p class="text-xs text-slate-500 dark:text-slate-400">Conversion Rate</p></div>
+                            <div><p class="text-3xl font-bold text-red-500">-30%</p><p class="text-xs text-slate-500 dark:text-slate-400">Listing Fees</p></div>
+                            <div><p class="text-3xl font-bold text-red-500">Top-rated</p><p class="text-xs text-slate-500 dark:text-slate-400">Seller Status</p></div>
+                        </div>
+                    </div>
+                    <div class="lg:w-1/2 flex items-center justify-center p-8 bg-white dark:bg-slate-800 rounded-lg shadow-2xl" data-aos="fade-left">
+                        <svg class="h-24 w-auto text-slate-800 dark:text-white" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12.01 6.87a5.24 5.24 0 0 0-3.43 1.23 5.37 5.37 0 0 0-1.73 3.9c0 .4-.04.8-.1 1.2-.27 1.63-1.2 3.1-2.58 4.04-1.1 1.1-2.4 2-4.06 2.77.3-.23.6-.47.88-.72a12.8 12.8 0 0 1 2.89-2.62c1.73-1.1 3.2-2.43 4.2-4.1.86-1.4.9-2.94.22-4.36a5.16 5.16 0 0 0-3.05-2.88 5.4 5.4 0 0 0-5.18 1.02A5.36 5.36 0 0 0 .1 12.1a5.37 5.37 0 0 0 1.73 3.9c.04.04.1.07.14.1A5.24 5.24 0 0 0 5.4 17.2a5.37 5.37 0 0 0 3.9-1.73c.4-.03.8-.07 1.2-.1 1.63-.28 3.1-1.2 4.04-2.58 1.1-1.1 2-2.4 2.76-4.06a8.4 8.4 0 0 1-.72.88 12.8 12.8 0 0 1-2.62 2.89c-1.1 1.73-2.43 3.2-4.1 4.2-1.4.85-2.94.9-4.36.22a5.16 5.16 0 0 0-2.88-3.05 5.4 5.4 0 0 0-5.18 5.18 5.36 5.36 0 0 0 4.67 4.67 5.37 5.37 0 0 0 3.9-1.73c.04.04.07.08.1.13a5.24 5.24 0 0 0 1.23 3.43 5.37 5.37 0 0 0 3.9 1.73c.4.04.8.08 1.2.1 1.63.28 3.1 1.2 4.04 2.58 1.1 1.1 2 2.4 2.77 4.06.23-.3.47-.6.72-.88a12.8 12.8 0 0 1 2.62-2.89c1.73-1.1 3.2-2.43 4.2-4.1.85-1.4.9-2.94.22-4.36a5.16 5.16 0 0 0-3.05-2.88 5.4 5.4 0 0 0-5.18-1.02 5.36 5.36 0 0 0-4.67-4.67 5.37 5.37 0 0 0-3.9 1.73c-.04-.04-.08-.08-.13-.1zm11.9 8.27c-1.1 1.1-2.4 2-4.06 2.77a8.4 8.4 0 0 1-.72.88c.7-.4 1.35-.9 1.93-1.48a12.8 12.8 0 0 0 2.89-2.62c1.1-1.73 1.48-3.62 1.48-5.58a12.15 12.15 0 0 0-1.02-4.9c-.8-1.4-1.9-2.56-3.25-3.43-1.5-.94-3.2-1.4-4.9-1.3-1.9.1-3.75.8-5.26 1.88-1.3 1.02-2.3 2.3-2.9 3.8-.7 1.6-.8 3.4-.4 5.1.4 1.7 1.25 3.3 2.5 4.6a12.2 12.2 0 0 0 4.2 2.8c1.6.7 3.4.8 5.1.4a12.2 12.2 0 0 0 4.6-2.5c1.3-1.3 2.2-2.8 2.8-4.5.3-1.7.1-3.5-.4-5.1-.3-.7-.7-1.4-1.1-2a12.15 12.15 0 0 0-4.9-3.7c-1.57-.8-3.3-1.2-5.1-1.1a12.86 12.86 0 0 0-9.4 4.3 12.86 12.86 0 0 0-4.3 9.4c.1 1.8.8 3.5 1.88 5a12.15 12.15 0 0 0 3.8 4.2c1.5.8 3.2 1.2 4.9 1.1a12.86 12.86 0 0 0 9.4-4.3 12.86 12.86 0 0 0 4.3-9.4c0-.7-.1-1.4-.2-2.1z" fill-rule="evenodd" clip-rule="evenodd" fill="#E53238 #0064D2 #F5AF02 #86B817"/></svg>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 8. Process in Action (Simplified Graphic) -->
+        <section class="py-24 bg-white dark:bg-slate-900">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-800 dark:text-white">Our Process in Action</h2>
+                    <p class="text-slate-500 dark:text-slate-400 mt-2 max-w-2xl mx-auto">From strategy to scale, our process is designed for clarity and results.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-center relative">
+                     <div class="hidden md:block absolute top-4 left-0 right-0 h-0.5 bg-slate-200 dark:bg-slate-700"></div>
+                    <div class="relative" data-aos="fade-up"><div class="mx-auto w-8 h-8 flex items-center justify-center bg-sky-500 text-white font-bold rounded-full border-4 border-white dark:border-slate-900 z-10 relative">1</div><h3 class="font-bold text-slate-800 dark:text-white mt-4">Strategy</h3><p class="text-sm text-slate-500 dark:text-slate-400 mt-1">Market & Product Analysis</p></div>
+                    <div class="relative" data-aos="fade-up" data-aos-delay="100"><div class="mx-auto w-8 h-8 flex items-center justify-center bg-sky-500 text-white font-bold rounded-full border-4 border-white dark:border-slate-900 z-10 relative">2</div><h3 class="font-bold text-slate-800 dark:text-white mt-4">Execution</h3><p class="text-sm text-slate-500 dark:text-slate-400 mt-1">Listing & Ad Campaign Setup</p></div>
+                    <div class="relative" data-aos="fade-up" data-aos-delay="200"><div class="mx-auto w-8 h-8 flex items-center justify-center bg-sky-500 text-white font-bold rounded-full border-4 border-white dark:border-slate-900 z-10 relative">3</div><h3 class="font-bold text-slate-800 dark:text-white mt-4">Management</h3><p class="text-sm text-slate-500 dark:text-slate-400 mt-1">Daily Operations & Support</p></div>
+                    <div class="relative" data-aos="fade-up" data-aos-delay="300"><div class="mx-auto w-8 h-8 flex items-center justify-center bg-sky-500 text-white font-bold rounded-full border-4 border-white dark:border-slate-900 z-10 relative">4</div><h3 class="font-bold text-slate-800 dark:text-white mt-4">Scaling</h3><p class="text-sm text-slate-500 dark:text-slate-400 mt-1">Performance Analysis & Growth</p></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 9. Platform Expertise -->
+        <section class="py-24 bg-slate-50 dark:bg-slate-800/50">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12" data-aos="fade-up">
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-800 dark:text-white">Tailored Strategies for <span class="text-sky-500">Every Platform</span></h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="text-center" data-aos="fade-up"><div class="bg-white dark:bg-slate-800 p-6 rounded-lg shadow-md"><svg class="h-12 w-auto mx-auto text-sky-500" role="img" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M22.51 14.534c0 3.253-2.172 4.41-5.115 4.41-2.215 0-3.83-1.26-4.29-2.345l-.147-.384-.148.384c-.46 1.085-2.075 2.345-4.29 2.345-2.943 0-5.115-1.157-5.115-4.41 0-2.37.95-3.626 2.76-4.53l8.36-4.145 8.36 4.145c1.81.905 2.76 2.16 2.76 4.53Zm-9.08-2.61-5.73-2.83c-.7-.348-1.5-.32-2.17.073-.615.35-1.03 1.03-1.03 1.73v.004c.03.01.05.02.08.03l8.84 4.385.01-.005.01-.005ZM12 13.045l8.91-4.415c.02-.01.05-.02.08-.03v-.005c0-.7-.415-1.38-1.03-1.73-.67-.393-1.47-.42-2.17-.073l-5.73 2.83-.01.005-.05.02Z"/></svg></div><p class="mt-4 text-slate-600 dark:text-slate-300">We leverage A+ content and master the A9 algorithm to maximize visibility on Amazon.</p></div>
+                    <div class="text-center" data-aos="fade-up" data-aos-delay="100"><div class="bg-white dark:bg-slate-800 p-6 rounded-lg shadow-md"><svg class="h-12 w-auto mx-auto text-green-500" role="img" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M11.232 5.392l-4.5 2.58v5.155l4.5 2.58l4.5-2.58V7.972l-4.5-2.58zm0-2.172a2.25 2.25 0 0 1 1.125.32l6.75 3.872a2.25 2.25 0 0 1 1.125 1.95v7.75a2.25 2.25 0 0 1-1.125 1.95l-6.75 3.87a2.25 2.25 0 0 1-2.25 0l-6.75-3.87a2.25 2.25 0 0 1-1.125-1.95v-7.75a2.25 2.25 0 0 1 1.125-1.95l6.75-3.87a2.25 2.25 0 0 1 1.125-.322zM24 12l-5.34-3.08L13.32 12l5.34 3.08L24 12zM0 12l5.34-3.08L10.68 12l-5.34 3.08L0 12z"/></svg></div><p class="mt-4 text-slate-600 dark:text-slate-300">Our focus on competitive pricing and fulfillment excellence helps you win the Walmart Buy Box.</p></div>
+                    <div class="text-center" data-aos="fade-up" data-aos-delay="200"><div class="bg-white dark:bg-slate-800 p-6 rounded-lg shadow-md"><svg class="h-12 w-auto mx-auto text-red-500" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12.01 6.87a5.24 5.24 0 0 0-3.43 1.23 5.37 5.37 0 0 0-1.73 3.9c0 .4-.04.8-.1 1.2-.27 1.63-1.2 3.1-2.58 4.04-1.1 1.1-2.4 2-4.06 2.77.3-.23.6-.47.88-.72a12.8 12.8 0 0 1 2.89-2.62c1.73-1.1 3.2-2.43 4.2-4.1.86-1.4.9-2.94.22-4.36a5.16 5.16 0 0 0-3.05-2.88 5.4 5.4 0 0 0-5.18 1.02A5.36 5.36 0 0 0 .1 12.1a5.37 5.37 0 0 0 1.73 3.9c.04.04.1.07.14.1A5.24 5.24 0 0 0 5.4 17.2a5.37 5.37 0 0 0 3.9-1.73c.4-.03.8-.07 1.2-.1 1.63-.28 3.1-1.2 4.04-2.58 1.1-1.1 2-2.4 2.76-4.06a8.4 8.4 0 0 1-.72.88 12.8 12.8 0 0 1-2.62 2.89c-1.1 1.73-2.43 3.2-4.1 4.2-1.4.85-2.94.9-4.36.22a5.16 5.16 0 0 0-2.88-3.05 5.4 5.4 0 0 0-5.18 5.18 5.36 5.36 0 0 0 4.67 4.67 5.37 5.37 0 0 0 3.9-1.73c.04.04.07.08.1.13a5.24 5.24 0 0 0 1.23 3.43 5.37 5.37 0 0 0 3.9 1.73c.4.04.8.08 1.2.1 1.63.28 3.1 1.2 4.04 2.58 1.1 1.1 2 2.4 2.77 4.06.23-.3.47-.6.72-.88a12.8 12.8 0 0 1 2.62-2.89c1.73-1.1 3.2-2.43 4.2-4.1.85-1.4.9-2.94.22-4.36a5.16 5.16 0 0 0-3.05-2.88 5.4 5.4 0 0 0-5.18-1.02 5.36 5.36 0 0 0-4.67-4.67 5.37 5.37 0 0 0-3.9 1.73c-.04-.04-.08-.08-.13-.1zm11.9 8.27c-1.1 1.1-2.4 2-4.06 2.77a8.4 8.4 0 0 1-.72.88c.7-.4 1.35-.9 1.93-1.48a12.8 12.8 0 0 0 2.89-2.62c1.1-1.73 1.48-3.62 1.48-5.58a12.15 12.15 0 0 0-1.02-4.9c-.8-1.4-1.9-2.56-3.25-3.43-1.5-.94-3.2-1.4-4.9-1.3-1.9.1-3.75.8-5.26 1.88-1.3 1.02-2.3 2.3-2.9 3.8-.7 1.6-.8 3.4-.4 5.1.4 1.7 1.25 3.3 2.5 4.6a12.2 12.2 0 0 0 4.2 2.8c1.6.7 3.4.8 5.1.4a12.2 12.2 0 0 0 4.6-2.5c1.3-1.3 2.2-2.8 2.8-4.5.3-1.7.1-3.5-.4-5.1-.3-.7-.7-1.4-1.1-2a12.15 12.15 0 0 0-4.9-3.7c-1.57-.8-3.3-1.2-5.1-1.1a12.86 12.86 0 0 0-9.4 4.3 12.86 12.86 0 0 0-4.3 9.4c.1 1.8.8 3.5 1.88 5a12.15 12.15 0 0 0 3.8 4.2c1.5.8 3.2 1.2 4.9 1.1a12.86 12.86 0 0 0 9.4-4.3 12.86 12.86 0 0 0 4.3-9.4c0-.7-.1-1.4-.2-2.1z" fill-rule="evenodd" clip-rule="evenodd" fill="#E53238 #0064D2 #F5AF02 #86B817"/></svg></div><p class="mt-4 text-slate-600 dark:text-slate-300">We optimize eBay listings and promotions to achieve Top-rated Seller status and boost conversions.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 10. Final CTA -->
+        <section class="py-24 bg-white dark:bg-slate-900">
+            <div class="container mx-auto px-6 text-center" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-800 dark:text-white">Ready to Be Our Next <span class="text-sky-500">Success Story?</span></h2>
+                <p class="text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto mt-4 mb-8">Your brand has potential. We have the strategy to unlock it. Let's talk about how we can build your e-commerce future together.</p>
+                <a href="index.html#contact" class="bg-sky-500 hover:bg-sky-600 text-white font-bold py-4 px-10 rounded-full text-lg transition-all duration-300 hover:scale-105 shadow-2xl shadow-sky-500/30">
+                    Get a Free Proposal
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-200 dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800">
+        <div class="container mx-auto px-6 py-8">
+            <div class="flex flex-col md:flex-row justify-between items-center text-center md:text-left">
+                <p class="text-slate-500 dark:text-slate-400 mb-4 md:mb-0">&copy; 2025 Next Gen Agency. All Rights Reserved.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-slate-500 dark:text-slate-400 hover:text-sky-500 transition-colors"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.71v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" /></svg></a>
+                    <a href="#" class="text-slate-500 dark:text-slate-400 hover:text-sky-500 transition-colors"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12.014c0 4.548 3.102 8.366 7.337 9.635.537.1.733-.23.733-.513v-1.8c-3.01.655-3.643-1.457-3.643-1.457-.487-1.24-1.19-1.57-1.19-1.57-.973-.666.074-.653.074-.653 1.074.075 1.64 1.103 1.64 1.103.954 1.637 2.503 1.163 3.113.89.097-.7.373-1.164.68-1.432-2.378-.27-4.875-1.19-4.875-5.282 0-1.168.416-2.122 1.1-2.868-.11-.27-.477-1.356.104-2.822 0 0 .898-.288 2.94 1.098a10.29 10.29 0 012.67-.36c.905 0 1.81.12 2.67.36 2.04-1.386 2.936-1.098 2.936-1.098.583 1.466.216 2.552.106 2.822.686.746 1.1 1.7 1.1 2.868 0 4.102-2.498 5.01-4.885 5.274.385.33.73.98.73 1.974v2.92h-.008c0 .286.193.617.74.51C18.898 20.38 22 16.56 22 12.014 22 6.477 17.523 2 12 2z" clip-rule="evenodd" /></svg></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+        const preloader = document.getElementById('preloader');
+        const mainContent = document.getElementById('main-content');
+        
+        function finishLoading() {
+            if (preloader.classList.contains('loaded')) return;
+            preloader.classList.add('loaded');
+            setTimeout(() => {
+                preloader.style.display = 'none';
+                document.body.style.overflow = 'auto';
+                mainContent.style.opacity = '1';
+                AOS.init({
+                    duration: 800,
+                    easing: 'ease-in-out',
+                    once: true,
+                    mirror: false
+                });
+            }, 500);
+        }
+
+        window.addEventListener('load', finishLoading);
+        setTimeout(finishLoading, 3000); 
+        
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const lightIcon = document.getElementById('theme-toggle-light-icon');
+        const darkIcon = document.getElementById('theme-toggle-dark-icon');
+
+        const setIconVisibility = () => {
+            if (document.documentElement.classList.contains('dark')) {
+                lightIcon.classList.remove('hidden');
+                darkIcon.classList.add('hidden');
+            } else {
+                lightIcon.classList.add('hidden');
+                darkIcon.classList.remove('hidden');
+            }
+        };
+        setIconVisibility();
+        themeToggleBtn.addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark');
+            localStorage.theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+            setIconVisibility();
+        });
+    });
+    </script>
+</body>
+</html>
