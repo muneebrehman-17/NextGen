@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services - Next Gen Agency</title>
+    
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230f172a'/%3E%3Cpath d='M30 80V20 L70 50 V80 L30 50 V20' fill='none' stroke='%2338bdf8' stroke-width='10'/%3E%3C/svg%3E">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style type="text/tailwindcss">
+        @layer base {
+            html {
+                font-family: 'Inter', sans-serif;
+            }
+        }
+        
+        /* --- Preloader Styles --- */
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #0f172a;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.8s ease-out;
+        }
+        #preloader.loaded {
+            opacity: 0;
+            pointer-events: none;
+        }
+        .loader-container {
+            display: flex;
+            align-items: flex-end;
+            height: 50px;
+        }
+        .loader-bar {
+            width: 10px;
+            height: 10px;
+            margin: 0 4px;
+            background-color: #38bdf8;
+            border-radius: 5px;
+            animation: bar-grow 1.2s infinite ease-in-out;
+        }
+        .loader-bar:nth-child(2) { animation-delay: 0.1s; }
+        .loader-bar:nth-child(3) { animation-delay: 0.2s; }
+        .loader-bar:nth-child(4) { animation-delay: 0.3s; }
+
+        @keyframes bar-grow {
+            0%, 100% {
+                transform: scaleY(0.2);
+                background-color: #334155;
+            }
+            50% {
+                transform: scaleY(1);
+                background-color: #38bdf8;
+            }
+        }
+
+        /* --- Nav Link Underline --- */
+        .nav-link { position: relative; text-decoration: none; }
+        .nav-link::after {
+            content: ''; position: absolute; width: 100%; transform: scaleX(0);
+            height: 2px; bottom: -4px; left: 0; background-color: #38bdf8;
+            transform-origin: bottom right; transition: transform 0.25s ease-out;
+        }
+        .nav-link:hover::after { transform: scaleX(1); transform-origin: bottom left; }
+
+        /* --- Aurora Background --- */
+        .aurora-background { position: relative; overflow: hidden; }
+        .aurora-background::before {
+            content: ""; position: absolute; top: 50%; left: 50%;
+            transform: translate(-50%, -50%); width: 120%; height: 120%;
+            background-image: radial-gradient(circle at 20% 20%, rgba(56, 189, 248, 0.15), transparent 30%),
+                              radial-gradient(circle at 80% 70%, rgba(139, 92, 246, 0.15), transparent 30%);
+            animation: aurora-move 20s infinite linear; z-index: 0;
+        }
+        @keyframes aurora-move {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        /* --- Chart Background Style --- */
+        .chart-background {
+            position: relative;
+            overflow: hidden;
+        }
+        .chart-background::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            opacity: 0.05;
+            z-index: 0;
+            background-image: var(--bg-image);
+        }
+        .dark .chart-background::before {
+             opacity: 0.03;
+        }
+        .chart-background > * {
+            position: relative;
+            z-index: 1;
+        }
+    </style>
+    <script>
+        // Handles dark mode based on user's system preference or saved choice
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark')
+        } else {
+            document.documentElement.classList.remove('dark')
+        }
+    </script>
+</head>
+
+<body class="bg-slate-100 dark:bg-slate-900 text-slate-700 dark:text-slate-300 transition-colors duration-500 overflow-hidden">
+    
+    <!-- New Minimal Preloader -->
+    <div id="preloader">
+        <div class="loader-container">
+            <div class="loader-bar"></div>
+            <div class="loader-bar"></div>
+            <div class="loader-bar"></div>
+            <div class="loader-bar"></div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="bg-slate-100/80 dark:bg-slate-900/80 backdrop-blur-md fixed top-0 left-0 right-0 z-50 border-b border-slate-200 dark:border-slate-800">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold text-slate-800 dark:text-white">
+                Next Gen <span class="text-sky-500">Agency</span>
+            </a>
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="index.html" class="nav-link hover:text-sky-500 dark:hover:text-sky-400 transition-colors duration-300">Home</a>
+                <a href="about.html" class="nav-link hover:text-sky-500 dark:hover:text-sky-400 transition-colors duration-300">Our Process</a>
+                <a href="services.html" class="nav-link text-sky-500 dark:text-sky-400">Services</a>
+                <a href="index.html#portfolio" class="nav-link hover:text-sky-500 dark:hover:text-sky-400 transition-colors duration-300">Work</a>
+                <a href="index.html#contact" class="nav-link hover:text-sky-500 dark:hover:text-sky-400 transition-colors duration-300">Contact</a>
+            </nav>
+            <div class="flex items-center space-x-4">
+                <button id="theme-toggle" class="p-2 rounded-full text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800 focus:outline-none">
+                    <svg id="theme-toggle-light-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm-.707 7.072l.707-.707a1 1 0 10-1.414-1.414l-.707.707a1 1 0 001.414 1.414zM3 11a1 1 0 100-2H2a1 1 0 100 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+                    <svg id="theme-toggle-dark-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+                </button>
+                <a href="index.html#contact" class="hidden md:block bg-sky-500 hover:bg-sky-600 text-white font-semibold px-5 py-2 rounded-md transition-all duration-300 hover:scale-105 shadow-lg shadow-sky-500/20">
+                    Get Started
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content" class="opacity-0">
+        <!-- Hero Section -->
+        <section id="services-hero" class="aurora-background relative min-h-[60vh] flex items-center bg-white dark:bg-slate-900">
+            <div class="container mx-auto px-6 text-center z-10">
+                <div data-aos="fade-up">
+                    <h1 class="text-4xl md:text-6xl font-extrabold text-slate-900 dark:text-white leading-tight mb-4">
+                        Your End-to-End <span class="text-sky-500">E-commerce Growth Engine</span>
+                    </h1>
+                    <p class="text-lg md:text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="200">
+                        From product hunting to daily management, we offer a complete suite of services designed to build, manage, and scale your automated e-commerce business on Walmart, Amazon, and eBay.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Core Service Section -->
+        <section id="core-service" class="py-24">
+            <div class="container mx-auto px-6">
+                <div class="chart-background bg-white dark:bg-slate-800 rounded-2xl shadow-2xl p-8 md:p-12" data-aos="fade-up" style="--bg-image: url('https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=2070&auto=format&fit=crop')">
+                    <div class="lg:flex items-center gap-12">
+                        <div class="lg:w-1/2 mb-8 lg:mb-0">
+                            <div class="mb-6">
+                                <span class="text-sky-500 font-semibold uppercase tracking-wider">Our Primary Offering</span>
+                                <h2 class="text-3xl md:text-4xl font-bold text-slate-800 dark:text-white mt-2">Full-Service Store Automation</h2>
+                            </div>
+                            <p class="text-slate-600 dark:text-slate-300 text-lg mb-6">
+                                This is our all-inclusive, hands-off solution for clients who want to own a profitable e-commerce asset without the day-to-day operational headaches. We handle everything from A to Z, turning your investment into a smoothly running, revenue-generating machine.
+                            </p>
+                            <div class="flex items-center space-x-4">
+                                <span class="font-semibold text-slate-700 dark:text-slate-200">Platforms:</span>
+                                <div class="flex space-x-3">
+                                    <div class="flex items-center gap-2 text-xs font-semibold py-1 px-2.5 uppercase rounded-full text-green-600 bg-green-200 dark:bg-green-500/20 dark:text-green-400 w-fit">
+                                        <svg class="w-4 h-4" role="img" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M11.232 5.392l-4.5 2.58v5.155l4.5 2.58l4.5-2.58V7.972l-4.5-2.58zm0-2.172a2.25 2.25 0 0 1 1.125.32l6.75 3.872a2.25 2.25 0 0 1 1.125 1.95v7.75a2.25 2.25 0 0 1-1.125 1.95l-6.75 3.87a2.25 2.25 0 0 1-2.25 0l-6.75-3.87a2.25 2.25 0 0 1-1.125-1.95v-7.75a2.25 2.25 0 0 1 1.125-1.95l6.75-3.87a2.25 2.25 0 0 1 1.125-.322zM24 12l-5.34-3.08L13.32 12l5.34 3.08L24 12zM0 12l5.34-3.08L10.68 12l-5.34 3.08L0 12z"/></svg>
+                                        Walmart
+                                    </div>
+                                    <div class="flex items-center gap-2 text-xs font-semibold py-1 px-2.5 uppercase rounded-full text-sky-600 bg-sky-200 dark:bg-sky-500/20 dark:text-sky-400 w-fit">
+                                        <svg class="w-4 h-4" role="img" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M22.51 14.534c0 3.253-2.172 4.41-5.115 4.41-2.215 0-3.83-1.26-4.29-2.345l-.147-.384-.148.384c-.46 1.085-2.075 2.345-4.29 2.345-2.943 0-5.115-1.157-5.115-4.41 0-2.37.95-3.626 2.76-4.53l8.36-4.145 8.36 4.145c1.81.905 2.76 2.16 2.76 4.53Zm-9.08-2.61-5.73-2.83c-.7-.348-1.5-.32-2.17.073-.615.35-1.03 1.03-1.03 1.73v.004c.03.01.05.02.08.03l8.84 4.385.01-.005.01-.005ZM12 13.045l8.91-4.415c.02-.01.05-.02.08-.03v-.005c0-.7-.415-1.38-1.03-1.73-.67-.393-1.47-.42-2.17-.073l-5.73 2.83-.01.005-.05.02Z"/></svg>
+                                        Amazon
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="lg:w-1/2">
+                            <h3 class="text-xl font-bold text-slate-800 dark:text-white mb-4">Key Features Included:</h3>
+                            <ul class="space-y-3">
+                                <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Product Hunting & Vetting</li>
+                                <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Listing Creation & SEO Optimization</li>
+                                <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Order Processing & Fulfillment Coordination</li>
+                                <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Customer Service Management</li>
+                                <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Inventory & Returns Handling</li>
+                                <li class="flex items-center"><svg class="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Monthly Performance & Financial Reporting</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Specialized Services -->
+        <section id="specialized-services" class="py-24 bg-slate-50 dark:bg-slate-800/50 chart-background" style="--bg-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop')">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-800 dark:text-white">Our Specialized <span class="text-sky-500">Expertise</span></h2>
+                    <p class="text-slate-500 dark:text-slate-400 mt-2 max-w-2xl mx-auto">Beyond full automation, we offer targeted services to solve specific e-commerce challenges.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Service Card 1 -->
+                    <div class="bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm p-8 rounded-lg shadow-lg" data-aos="fade-up" data-aos-delay="100">
+                        <div class="bg-sky-100 dark:bg-sky-500/10 text-sky-500 w-16 h-16 rounded-full flex items-center justify-center mb-6"><svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg></div>
+                        <h3 class="text-xl font-bold text-slate-800 dark:text-white mb-3">Product Sourcing & Research</h3>
+                        <p class="text-slate-500 dark:text-slate-400">Using advanced analytics, we identify high-demand, low-competition products poised for success. We vet suppliers to ensure quality and reliability.</p>
+                    </div>
+                    <!-- Service Card 2 -->
+                    <div class="bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm p-8 rounded-lg shadow-lg" data-aos="fade-up" data-aos-delay="200">
+                        <div class="bg-sky-100 dark:bg-sky-500/10 text-sky-500 w-16 h-16 rounded-full flex items-center justify-center mb-6"><svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z" /></svg></div>
+                        <h3 class="text-xl font-bold text-slate-800 dark:text-white mb-3">PPC & Ad Campaign Management</h3>
+                        <p class="text-slate-500 dark:text-slate-400">We design and manage targeted pay-per-click (PPC) campaigns on Walmart and Amazon to accelerate your sales and maximize your return on ad spend.</p>
+                    </div>
+                    <!-- Service Card 3 -->
+                    <div class="bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm p-8 rounded-lg shadow-lg" data-aos="fade-up" data-aos-delay="300">
+                        <div class="bg-sky-100 dark:bg-sky-500/10 text-sky-500 w-16 h-16 rounded-full flex items-center justify-center mb-6"><svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V8a2 2 0 00-2-2h-5m-4 0V5a2 2 0 012-2h2a2 2 0 012 2v1m-6 0h6" /></svg></div>
+                        <h3 class="text-xl font-bold text-slate-800 dark:text-white mb-3">LLC & Business Setup Guidance</h3>
+                        <p class="text-slate-500 dark:text-slate-400">We guide you through the crucial first steps of setting up your business entity, including LLC formation, EIN registration, and acquiring a resale certificate.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Strategic Edge Section -->
+        <section class="py-24">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-800 dark:text-white">Our Strategic <span class="text-sky-500">Edge</span></h2>
+                </div>
+                <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                    <div data-aos="fade-up" data-aos-delay="100">
+                        <div class="bg-white dark:bg-slate-800 rounded-full h-20 w-20 mx-auto flex items-center justify-center shadow-lg mb-4"><svg class="w-10 h-10 text-sky-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg></div>
+                        <h3 class="font-bold text-xl text-slate-800 dark:text-white">Data-Driven Decisions</h3>
+                        <p class="text-slate-500 dark:text-slate-400 mt-2">Our strategies are built on robust market analytics, not guesswork.</p>
+                    </div>
+                    <div data-aos="fade-up" data-aos-delay="200">
+                        <div class="bg-white dark:bg-slate-800 rounded-full h-20 w-20 mx-auto flex items-center justify-center shadow-lg mb-4"><svg class="w-10 h-10 text-sky-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg></div>
+                        <h3 class="font-bold text-xl text-slate-800 dark:text-white">Dedicated Support</h3>
+                        <p class="text-slate-500 dark:text-slate-400 mt-2">Every client is paired with a dedicated account manager for clear communication.</p>
+                    </div>
+                    <div data-aos="fade-up" data-aos-delay="300">
+                        <div class="bg-white dark:bg-slate-800 rounded-full h-20 w-20 mx-auto flex items-center justify-center shadow-lg mb-4"><svg class="w-10 h-10 text-sky-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg></div>
+                        <h3 class="font-bold text-xl text-slate-800 dark:text-white">Full Transparency</h3>
+                        <p class="text-slate-500 dark:text-slate-400 mt-2">You have 24/7 access to your store's data and receive detailed monthly reports.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final CTA -->
+        <section class="py-24 bg-slate-50 dark:bg-slate-800/50">
+            <div class="container mx-auto px-6 text-center" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-800 dark:text-white">Ready to Build Your <span class="text-sky-500">Automated Business?</span></h2>
+                <p class="text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto mt-4 mb-8">Let's discuss which of our services is the right fit for your goals. A profitable e-commerce asset is just a conversation away.</p>
+                <a href="index.html#contact" class="bg-sky-500 hover:bg-sky-600 text-white font-bold py-4 px-10 rounded-full text-lg transition-all duration-300 hover:scale-105 shadow-2xl shadow-sky-500/30">
+                    Schedule a Free Strategy Call
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-200 dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800">
+        <div class="container mx-auto px-6 py-8">
+            <div class="flex flex-col md:flex-row justify-between items-center text-center md:text-left">
+                <p class="text-slate-500 dark:text-slate-400 mb-4 md:mb-0">&copy; 2025 Next Gen Agency. All Rights Reserved.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-slate-500 dark:text-slate-400 hover:text-sky-500 transition-colors"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.71v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" /></svg></a>
+                    <a href="#" class="text-slate-500 dark:text-slate-400 hover:text-sky-500 transition-colors"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12.014c0 4.548 3.102 8.366 7.337 9.635.537.1.733-.23.733-.513v-1.8c-3.01.655-3.643-1.457-3.643-1.457-.487-1.24-1.19-1.57-1.19-1.57-.973-.666.074-.653.074-.653 1.074.075 1.64 1.103 1.64 1.103.954 1.637 2.503 1.163 3.113.89.097-.7.373-1.164.68-1.432-2.378-.27-4.875-1.19-4.875-5.282 0-1.168.416-2.122 1.1-2.868-.11-.27-.477-1.356.104-2.822 0 0 .898-.288 2.94 1.098a10.29 10.29 0 012.67-.36c.905 0 1.81.12 2.67.36 2.04-1.386 2.936-1.098 2.936-1.098.583 1.466.216 2.552.106 2.822.686.746 1.1 1.7 1.1 2.868 0 4.102-2.498 5.01-4.885 5.274.385.33.73.98.73 1.974v2.92h-.008c0 .286.193.617.74.51C18.898 20.38 22 16.56 22 12.014 22 6.477 17.523 2 12 2z" clip-rule="evenodd" /></svg></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+        const preloader = document.getElementById('preloader');
+        const mainContent = document.getElementById('main-content');
+        
+        function finishLoading() {
+            if (preloader.classList.contains('loaded')) return;
+            preloader.classList.add('loaded');
+            setTimeout(() => {
+                preloader.style.display = 'none';
+                document.body.style.overflow = 'auto';
+                mainContent.style.opacity = '1';
+                AOS.init({
+                    duration: 800,
+                    easing: 'ease-in-out',
+                    once: true,
+                    mirror: false
+                });
+            }, 500);
+        }
+
+        window.addEventListener('load', finishLoading);
+        setTimeout(finishLoading, 3000); 
+        
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const lightIcon = document.getElementById('theme-toggle-light-icon');
+        const darkIcon = document.getElementById('theme-toggle-dark-icon');
+
+        const setIconVisibility = () => {
+            if (document.documentElement.classList.contains('dark')) {
+                lightIcon.classList.remove('hidden');
+                darkIcon.classList.add('hidden');
+            } else {
+                lightIcon.classList.add('hidden');
+                darkIcon.classList.remove('hidden');
+            }
+        };
+
+        setIconVisibility();
+
+        themeToggleBtn.addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark');
+            localStorage.theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+            setIconVisibility();
+        });
+    });
+    </script>
+</body>
+</html>
