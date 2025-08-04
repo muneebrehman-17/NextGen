@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Next Gen - Full-Service eCommerce Partner</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Style for the scroll-snap container */
+        .scroll-container {
+            scroll-snap-type: y mandatory;
+            overflow-y: scroll;
+            height: 100vh;
+        }
+        .scroll-section {
+            scroll-snap-align: start;
+            min-height: 100vh;
+            position: relative;
+        }
+        /* Smoother Animation styles */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.645, 0.045, 0.355, 1), transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
+        }
+        .is-visible .fade-in-up {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* Staggered animation delays */
+        .is-visible .delay-1 { transition-delay: 0.1s; }
+        .is-visible .delay-2 { transition-delay: 0.2s; }
+        .is-visible .delay-3 { transition-delay: 0.3s; }
+        .is-visible .delay-4 { transition-delay: 0.4s; }
+        .is-visible .delay-5 { transition-delay: 0.5s; }
+
+        .flow-arrow-lg {
+            color: #d1d5db; /* gray-300 */
+        }
+        @media (max-width: 768px) {
+            .flow-arrow-lg {
+                transform: rotate(90deg);
+                margin: 1rem 0;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <div class="scroll-container">
+        <!-- Header Section (Fixed) -->
+        <header class="bg-white/80 backdrop-blur-md shadow-md fixed top-0 left-0 right-0 z-50">
+            <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+                <div class="flex items-center space-x-3">
+                     <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                    <h1 class="text-2xl font-bold text-gray-900">Next Gen</h1>
+                </div>
+                <a href="#contact" class="bg-blue-600 text-white font-semibold px-4 py-2 rounded-lg hover:bg-blue-700 transition duration-300">Get Started</a>
+            </div>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="scroll-section flex flex-col items-center justify-center text-center p-6 bg-white">
+            <div class="fade-in-up">
+                <h2 class="text-4xl md:text-6xl font-extrabold text-gray-900 mb-4 fade-in-up delay-1">We Handle the Work.<br>You Get the Profit.</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto mb-8 fade-in-up delay-2">A full-service partnership to launch, manage, and scale your brand on Walmart Marketplace.</p>
+                <div class="text-sm text-gray-500 animate-bounce fade-in-up delay-3">
+                    <p>Scroll down to see our roadmap</p>
+                    <svg class="w-6 h-6 mx-auto mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+                </div>
+            </div>
+        </section>
+
+        <!-- Step 1: Store Creation -->
+        <section class="scroll-section flex flex-col items-center justify-center p-6 bg-gray-50">
+            <div class="text-center w-full max-w-5xl fade-in-up">
+                <div class="mb-2"><span class="bg-blue-100 text-blue-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded-full">Roadmap Step 1</span></div>
+                <h3 class="text-2xl md:text-3xl font-bold mb-2 fade-in-up delay-1">Store Creation & Setup</h3>
+                <p class="text-gray-600 mb-12 fade-in-up delay-2">We start by gathering your business details to build the foundation correctly.</p>
+                <div class="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12">
+                    <div class="text-center fade-in-up delay-3">
+                        <div class="bg-white p-6 rounded-xl shadow-lg inline-block">
+                            <svg class="w-16 h-16 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+                        </div>
+                        <p class="mt-2 font-semibold">Your Business Info</p>
+                        <p class="text-xs text-gray-500 mt-1">We'll need your legal name, address, and tax info.</p>
+                    </div>
+                    <svg class="w-12 h-12 flow-arrow-lg fade-in-up delay-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                    <div class="text-center fade-in-up delay-5">
+                        <div class="bg-white p-6 rounded-xl shadow-lg inline-block">
+                            <svg class="w-16 h-16 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
+                        </div>
+                        <p class="mt-2 font-semibold">Official Walmart Store</p>
+                         <p class="text-xs text-gray-500 mt-1">A professional, fully configured seller account.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Onboarding Roadmap -->
+        <section class="scroll-section flex flex-col items-center justify-center p-6 bg-white">
+            <div class="w-full max-w-4xl fade-in-up">
+                <div class="text-center mb-10">
+                    <h3 class="text-2xl md:text-3xl font-bold mb-2 fade-in-up delay-1">Your Onboarding Roadmap</h3>
+                    <p class="text-gray-600 fade-in-up delay-2">To ensure a secure and swift setup, we'll need the following information from you.</p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-x-12 gap-y-8">
+                    <div class="fade-in-up delay-3">
+                        <h4 class="font-bold text-lg mb-3 border-b pb-2">1. Business Information</h4>
+                        <ul class="list-disc list-outside ml-5 space-y-2 text-gray-700">
+                            <li><strong>Legal Company Name:</strong> As registered with government agencies.</li>
+                            <li><strong>US Business Address:</strong> A physical address, no P.O. Boxes.</li>
+                            <li><strong>Employer Identification Number (EIN):</strong> Your federal tax ID.</li>
+                        </ul>
+                    </div>
+                    <div class="fade-in-up delay-4">
+                        <h4 class="font-bold text-lg mb-3 border-b pb-2">2. Financial Setup</h4>
+                        <ul class="list-disc list-outside ml-5 space-y-2 text-gray-700">
+                            <li><strong>US Bank Account:</strong> For Walmart to deposit your earnings (Routing & Account #).</li>
+                            <li><strong>Dedicated Business Card:</strong> A separate credit/debit card for purchasing products.</li>
+                        </ul>
+                    </div>
+                    <div class="fade-in-up delay-5">
+                        <h4 class="font-bold text-lg mb-3 border-b pb-2">3. Technical Setup</h4>
+                        <ul class="list-disc list-outside ml-5 space-y-2 text-gray-700">
+                             <li><strong>Dedicated Laptop:</strong> A basic laptop for our team to process orders securely.</li>
+                             <li><strong>Remote Access Software:</strong> We will help you install AnyDesk for secure remote access.</li>
+                        </ul>
+                    </div>
+                     <div class="fade-in-up delay-5">
+                        <h4 class="font-bold text-lg mb-3 border-b pb-2">4. Primary Contact</h4>
+                        <ul class="list-disc list-outside ml-5 space-y-2 text-gray-700">
+                             <li><strong>Authorized Person:</strong> Name and email for verification and approvals.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Step 2: Product Hunting -->
+        <section class="scroll-section flex flex-col items-center justify-center p-6 bg-gray-50">
+             <div class="text-center w-full max-w-6xl fade-in-up">
+                <div class="mb-2"><span class="bg-blue-100 text-blue-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded-full">Roadmap Step 2</span></div>
+                <h3 class="text-2xl md:text-3xl font-bold mb-2 fade-in-up delay-1">Product Hunting & Listing</h3>
+                <p class="text-gray-600 mb-12 fade-in-up delay-2">Our expert team uses two proven models to stock your store with profitable products.</p>
+                <div class="flex flex-col md:flex-row items-stretch justify-around gap-8">
+                    <!-- Retail Arbitrage -->
+                    <div class="bg-white p-8 rounded-xl border w-full md:w-1/2 flex flex-col fade-in-up delay-3">
+                        <h4 class="font-bold text-xl mb-6 text-center">Retail Arbitrage (Quick Sales)</h4>
+                        <div class="flex-grow flex flex-col items-center justify-center gap-4">
+                            <div class="text-center"><div class="p-4 bg-gray-100 rounded-lg shadow-inner"><svg class="w-12 h-12 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></div><p class="font-semibold mt-2">Agency & Software</p><p class="text-xs text-gray-500">Finds trending products</p></div>
+                            <svg class="w-8 h-8 text-gray-400 rotate-90 md:rotate-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                            <div class="text-center"><div class="p-4 bg-gray-100 rounded-lg shadow-inner"><svg class="w-12 h-12 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg></div><p class="font-semibold mt-2">Agency</p><p class="text-xs text-gray-500">Lists product on your store</p></div>
+                        </div>
+                    </div>
+                    <!-- Wholesale -->
+                    <div class="bg-white p-8 rounded-xl border w-full md:w-1/2 flex flex-col fade-in-up delay-4">
+                        <h4 class="font-bold text-xl mb-6 text-center">Wholesale (High Margins)</h4>
+                        <div class="flex-grow flex flex-col items-center justify-center gap-4">
+                           <div class="text-center"><div class="p-4 bg-gray-100 rounded-lg shadow-inner"><svg class="w-12 h-12 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg></div><p class="font-semibold mt-2">Agency Research</p><p class="text-xs text-gray-500">Finds product & supplier</p></div>
+                            <svg class="w-8 h-8 text-gray-400 rotate-90 md:rotate-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                           <div class="text-center"><div class="p-4 bg-gray-100 rounded-lg shadow-inner"><svg class="w-12 h-12 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"></path></svg></div><p class="font-semibold mt-2">Client Investment</p><p class="text-xs text-gray-500">You provide funds for bulk order</p></div>
+                            <svg class="w-8 h-8 text-gray-400 rotate-90 md:rotate-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                           <div class="text-center"><div class="p-4 bg-gray-100 rounded-lg shadow-inner"><svg class="w-12 h-12 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path></svg></div><p class="font-semibold mt-2">Order in Bulk</p><p class="text-xs text-gray-500">We list it on your store</p></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Step 3: Secure Purchase -->
+        <section class="scroll-section flex flex-col items-center justify-center p-6 bg-white">
+            <div class="w-full max-w-5xl fade-in-up">
+                <div class="text-center mb-10">
+                    <div class="mb-2"><span class="bg-blue-100 text-blue-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded-full">Roadmap Step 3</span></div>
+                    <h3 class="text-2xl md:text-3xl font-bold mb-2 fade-in-up delay-1">Order & Secure Purchase</h3>
+                    <p class="text-gray-600 fade-in-up delay-2">Our secure protocol keeps you in full control of all spending.</p>
+                </div>
+                <div class="grid md:grid-cols-3 gap-8 text-center">
+                    <!-- Point 1 -->
+                    <div class="fade-in-up delay-3">
+                        <div class="p-6 bg-gray-50 rounded-xl shadow-lg inline-block mb-4">
+                            <svg class="w-12 h-12 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path></svg>
+                        </div>
+                        <h4 class="font-bold text-lg mb-2">Order Notification</h4>
+                        <p class="text-gray-600 text-sm">When a customer places an order on your store, our system immediately notifies our team and logs the order details.</p>
+                    </div>
+                    <!-- Point 2 -->
+                    <div class="fade-in-up delay-4">
+                        <div class="p-6 bg-gray-50 rounded-xl shadow-lg inline-block mb-4">
+                            <svg class="w-12 h-12 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"></path></svg>
+                        </div>
+                        <h4 class="font-bold text-lg mb-2">Client Approval & Funding</h4>
+                        <p class="text-gray-600 text-sm">We contact you for approval. You then add the exact amount for the purchase to the dedicated business card, ensuring you never overspend.</p>
+                    </div>
+                    <!-- Point 3 -->
+                    <div class="fade-in-up delay-5">
+                        <div class="p-6 bg-gray-50 rounded-xl shadow-lg inline-block mb-4">
+                            <svg class="w-12 h-12 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                        </div>
+                        <h4 class="font-bold text-lg mb-2">Secure Purchase</h4>
+                        <p class="text-gray-600 text-sm">Our team uses the secure, remote-access laptop to purchase the product from the supplier using the funds you provided.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Step 4: Fulfillment -->
+        <section class="scroll-section flex flex-col items-center justify-center p-6 bg-gray-50">
+             <div class="text-center w-full max-w-6xl fade-in-up">
+                <div class="mb-2"><span class="bg-blue-100 text-blue-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded-full">Roadmap Step 4</span></div>
+                <h3 class="text-2xl md:text-3xl font-bold mb-2 fade-in-up delay-1">Fulfillment & Delivery</h3>
+                <p class="text-gray-600 mb-12 fade-in-up delay-2">We manage all logistics, from the supplier to your customer's doorstep.</p>
+                <div class="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6">
+                    <div class="text-center fade-in-up delay-3"><div class="p-4 bg-white rounded-xl shadow-lg"><svg class="w-12 h-12 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg></div><p class="mt-2 font-semibold">Product Purchased</p></div>
+                    <svg class="w-12 h-12 flow-arrow-lg fade-in-up delay-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                    <div class="text-center p-4 bg-white rounded-xl shadow-lg fade-in-up delay-5">
+                        <svg class="w-12 h-12 text-blue-600 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path></svg>
+                        <p class="mt-2 font-semibold">Our Prep Warehouse</p>
+                        <div class="text-left text-xs text-gray-600 mt-2 border-t pt-2 space-y-2">
+                            <p><strong class="text-gray-800">Inspection:</strong> We check for quality and accuracy.</p>
+                            <p><strong class="text-gray-800">Prep Fees ($2-3):</strong> This covers handling and materials.</p>
+                            <p><strong class="text-gray-800">Label Cost ($4+):</strong> We apply the final shipping label.</p>
+                            <p><strong class="text-gray-800">Walmart Fee (~15%):</strong> The standard referral fee is calculated.</p>
+                        </div>
+                    </div>
+                    <svg class="w-12 h-12 flow-arrow-lg fade-in-up delay-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                    <div class="text-center fade-in-up delay-3"><div class="p-4 bg-white rounded-xl shadow-lg"><svg class="w-12 h-12 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z"></path></svg></div><p class="mt-2 font-semibold">Delivered to Customer</p></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Step 5: Profit -->
+        <section class="scroll-section flex flex-col items-center justify-center p-6 bg-white">
+             <div class="text-center w-full max-w-5xl fade-in-up">
+                <div class="mb-2"><span class="bg-green-100 text-green-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded-full">Roadmap Step 5</span></div>
+                <h3 class="text-2xl md:text-3xl font-bold mb-2 text-green-600 fade-in-up delay-1">You Get Paid</h3>
+                <p class="text-gray-600 mb-12 fade-in-up delay-2">The final step is the best part: collecting your profits.</p>
+                <div class="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6">
+                    <div class="text-center fade-in-up delay-3"><div class="p-4 bg-gray-50 rounded-xl shadow-lg"><svg class="w-12 h-12 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"></path></svg></div><p class="mt-2 font-semibold">Sale Processed</p></div>
+                    <svg class="w-12 h-12 flow-arrow-lg fade-in-up delay-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                    <div class="text-center fade-in-up delay-5"><div class="p-4 bg-gray-50 rounded-xl shadow-lg"><svg class="w-12 h-12 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7l8-4 8 4M12 15v4"></path></svg></div><p class="mt-2 font-semibold">Profit Deposited</p></div>
+                    <svg class="w-12 h-12 flow-arrow-lg fade-in-up delay-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                    <div class="text-center fade-in-up delay-3"><div class="p-4 bg-gray-50 rounded-xl shadow-lg"><svg class="w-12 h-12 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg></div><p class="mt-2 font-semibold">You Get Reports</p></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- What We Need & Contact Section -->
+        <section id="contact" class="scroll-section flex flex-col items-center justify-center p-6 bg-blue-600 text-white">
+            <div class="text-center w-full max-w-4xl fade-in-up">
+                <h3 class="text-3xl font-bold mb-4 fade-in-up delay-1">Ready to Start?</h3>
+                <p class="mb-12 max-w-2xl mx-auto fade-in-up delay-2">Let's begin your onboarding process. We'll guide you through each step.</p>
+                <div class="grid md:grid-cols-3 gap-8 mb-12">
+                    <div class="bg-blue-700/50 p-6 rounded-lg fade-in-up delay-3">
+                        <svg class="w-12 h-12 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.206"></path></svg>
+                        <h4 class="font-semibold text-lg">Seller Account</h4>
+                    </div>
+                    <div class="bg-blue-700/50 p-6 rounded-lg fade-in-up delay-4">
+                         <svg class="w-12 h-12 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                        <h4 class="font-semibold text-lg">Dedicated Laptop</h4>
+                    </div>
+                    <div class="bg-blue-700/50 p-6 rounded-lg fade-in-up delay-5">
+                        <svg class="w-12 h-12 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"></path></svg>
+                        <h4 class="font-semibold text-lg">Business Card</h4>
+                    </div>
+                </div>
+                <a href="mailto:your-email@example.com" class="bg-white text-blue-600 font-bold px-8 py-4 rounded-lg text-lg hover:bg-gray-200 transition duration-300 fade-in-up delay-5">Contact Us to Get Started</a>
+            </div>
+        </section>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const sections = document.querySelectorAll('.scroll-section');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                    }
+                });
+            }, {
+                root: document.querySelector('.scroll-container'),
+                threshold: 0.4 // Trigger when 40% of the section is visible
+            });
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+
+</body>
+</html>
