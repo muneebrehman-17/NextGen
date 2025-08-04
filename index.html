@@ -139,7 +139,8 @@
             <a href="Services.html" class="nav-link hover:text-sky-500 dark:hover:text-sky-400">Services</a>
             <a href="work.html" class="nav-link hover:text-sky-500 dark:hover:text-sky-400">Work</a>
             <a href="contact.html" class="nav-link hover:text-sky-500 dark:hover:text-sky-400">Contact</a>
-            <a href="index.html" class="nav-link hover:text-sky-500 dark:hover:text-sky-400">WorkFlow</a>
+            <!-- === THIS IS THE MODIFIED DESKTOP BUTTON === -->
+            <a href="index.html" class="inline-block bg-slate-800 dark:bg-gray-900 text-white font-semibold px-4 py-1.5 rounded-md border-2 border-red-500 shadow-lg shadow-red-500/50 transition-all duration-300 ease-in-out hover:shadow-xl hover:shadow-red-500/75 hover:border-red-400">WorkFlow</a>
         </nav>
 
         <div class="flex items-center space-x-2">
@@ -167,7 +168,8 @@
             <a href="Services.html" class="nav-link hover:text-sky-500 dark:hover:text-sky-400">Services</a>
             <a href="work.html" class="nav-link hover:text-sky-500 dark:hover:text-sky-400">Work</a>
             <a href="contact.html" class="nav-link hover:text-sky-500 dark:hover:text-sky-400">Contact</a>
-            <a href="index.html" class="nav-link hover:text-sky-500 dark:hover:text-sky-400">WorkFlow</a>
+            <!-- === THIS IS THE MODIFIED MOBILE BUTTON === -->
+            <a href="index.html" class="inline-block bg-slate-800 dark:bg-gray-900 text-white font-semibold px-4 py-1.5 rounded-md border-2 border-red-500 shadow-lg shadow-red-500/50 transition-all duration-300 ease-in-out hover:shadow-xl hover:shadow-red-500/75 hover:border-red-400">WorkFlow</a>
             <a href="contact.html" class="mt-4 w-full text-center bg-sky-500 hover:bg-sky-600 text-white font-semibold px-5 py-2 rounded-md">
                 Get Started
             </a>
@@ -186,9 +188,26 @@
                         We don't just manage online stores, we build empires. Scaling your business on Amazon, Walmart, and eBay with data-driven strategies and unparalleled expertise.
                     </p>
                     <div data-aos="fade-up" data-aos-delay="400">
-                      <a href="Services.html" class="bg-sky-500 hover:bg-sky-600 text-white font-bold py-4 px-10 rounded-full text-lg transition-all duration-300 hover:scale-105 shadow-2xl shadow-sky-500/30">
-                          Discover How
-                      </a>
+                        <a href="Services.html" 
+                           class="
+                            inline-block
+                            bg-slate-800 dark:bg-gray-900 
+                            text-white 
+                            font-bold 
+                            py-4 px-10 
+                            rounded-lg 
+                            text-lg 
+                            border-2 
+                            border-red-600 
+                            transition-all 
+                            duration-300 
+                            ease-in-out
+                            hover:border-red-500 
+                            hover:shadow-lg 
+                            hover:shadow-red-500/50
+                           ">
+                            Discover How
+                        </a>
                     </div>
                 </div>
             </div>
@@ -549,10 +568,7 @@
         if (metricsSection) {
             observer.observe(metricsSection);
         }
-    });
-    </script>
-    <script>
-    document.addEventListener('DOMContentLoaded', () => {
+
         // --- MOBILE MENU TOGGLE ---
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
@@ -564,29 +580,7 @@
             hamburgerIcon.classList.toggle('hidden');
             closeIcon.classList.toggle('hidden');
         });
-
-        // --- THEME TOGGLE LOGIC (assuming you want this on other pages too) ---
-        const themeToggleBtn = document.getElementById('theme-toggle');
-        const lightIcon = document.getElementById('theme-toggle-light-icon');
-        const darkIcon = document.getElementById('theme-toggle-dark-icon');
-
-        const setIconVisibility = () => {
-            if (document.documentElement.classList.contains('dark')) {
-                lightIcon.classList.remove('hidden');
-                darkIcon.classList.add('hidden');
-            } else {
-                lightIcon.classList.add('hidden');
-                darkIcon.classList.remove('hidden');
-            }
-        };
-        setIconVisibility();
-        themeToggleBtn.addEventListener('click', () => {
-            document.documentElement.classList.toggle('dark');
-            localStorage.theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
-            setIconVisibility();
-        });
     });
-</script>
+    </script>
 </body>
 </html>
-
